@@ -2,6 +2,15 @@
 
 Una aplicación web moderna para convertir JSON a esquemas compatibles con las APIs de OpenAI (Chat Completions y Responses API).
 
+## 🔗 Enlaces
+
+- 🌐 **Demo en vivo**: [json-openai.nuvawe.com](https://json-openai.nuvawe.com)
+- 📦 **Repositorio**: [github.com/FernandoTWE/JSONTransform](https://github.com/FernandoTWE/JSONTransform.git)
+
+## ⚡ Prueba Rápida
+
+¿Quieres probar la aplicación inmediatamente? Visita la **[demo en vivo](https://json-openai.nuvawe.com)** y convierte tu JSON en segundos.
+
 ## 🚀 Características
 
 ### Detección Automática Inteligente
@@ -25,7 +34,7 @@ Una aplicación web moderna para convertir JSON a esquemas compatibles con las A
 
 ### Interfaz de Usuario Moderna
 - Diseño responsive con Tailwind CSS
-- Componentes UI con Radix UI
+- Componentes UI con shadcn/ui y Radix UI
 - Visualización JSON con syntax highlighting
 - Validación en tiempo real
 - Indicadores de estado y errores
@@ -43,8 +52,8 @@ Una aplicación web moderna para convertir JSON a esquemas compatibles con las A
 
 ```bash
 # Clonar el repositorio
-git clone <repository-url>
-cd structurejson
+git clone https://github.com/FernandoTWE/JSONTransform.git
+cd JSONTransform
 
 # Instalar dependencias
 npm install

@@ -1,23 +1,56 @@
 ---
-import '../styles/global.css';
-// Component Imports
+import Layout from '../layouts/main.astro';
 import { SchemaConverter } from '../components/SchemaConverter';
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+const content = {
+  title: 'JSON to OpenAI Schema Converter',
+  description: 'Convierte JSON a esquemas compatibles con las APIs de OpenAI (Chat Completions y Responses API). Detección automática, configuración avanzada y interfaz moderna.'
+};
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Conversor JSON Schema a OpenAI</title>
-		<meta name="description" content="Convierte tu JSON Schema al formato requerido por OpenAI Structured Outputs" />
-	</head>
+<Layout {content}>
+  <main class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <!-- Header con logo -->
+    <header class="border-b border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex items-center gap-4">
+          <!-- Logo SVG inline para mejor rendimiento -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128" class="w-12 h-12 flex-shrink-0">
+            <defs>
+              <linearGradient id="bg-gradient-header" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+              </linearGradient>
+              <linearGradient id="json-gradient-header" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <circle cx="64" cy="64" r="60" fill="url(#bg-gradient-header)" />
+            <path d="M25 35 C20 35, 15 40, 15 45 L15 55 C15 58, 12 60, 10 60 C12 60, 15 62, 15 65 L15 75 C15 80, 20 85, 25 85" 
+                  stroke="url(#json-gradient-header)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M103 35 C108 35, 113 40, 113 45 L113 55 C113 58, 116 60, 118 60 C116 60, 113 62, 113 65 L113 75 C113 80, 108 85, 103 85" 
+                  stroke="url(#json-gradient-header)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M45 60 L75 60 M70 55 L75 60 L70 65" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="64" cy="60" r="3" fill="#FFFFFF"/>
+            <text x="64" y="95" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#FFFFFF" opacity="0.9">AI</text>
+          </svg>
+          
+          <div>
+            <h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+              JSON to OpenAI Schema Converter
+            </h1>
+            <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base mt-1">
+              Convierte JSON a esquemas compatibles con las APIs de OpenAI
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
 
-	<body>
-		<SchemaConverter client:load />
-	</body>
-</html>
+    <!-- Contenido principal -->
+    <div class="container mx-auto px-4 py-8">
+      <SchemaConverter client:load />
+    </div>
+  </main>
+</Layout>
