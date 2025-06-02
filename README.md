@@ -19,7 +19,9 @@ Una aplicación web moderna para convertir JSON a esquemas compatibles con las A
 - Detección automática del tipo de entrada con indicadores visuales
 
 ### Soporte Completo para APIs de OpenAI
-- **Chat Completions API**: Formato tradicional con `tools` y `function_calling`
+- **Chat Completions API**: Con soporte para JSON Mode y Structured Outputs
+  - **JSON Mode**: `{ "type": "json_object" }` - Garantiza JSON válido
+  - **Structured Outputs**: `{ "type": "json_schema" }` - Adherencia estricta a schema
 - **Responses API**: Nuevo formato con dos modos de conversación:
   - **Modo A (Instructions)**: Para peticiones simples de una sola vuelta
   - **Modo B (Roles)**: Para conversaciones multi-vuelta con contexto histórico
@@ -28,9 +30,11 @@ Una aplicación web moderna para convertir JSON a esquemas compatibles con las A
 - **Strict Mode**: Control de validación estricta de esquemas
 - **Additional Properties**: Configuración de propiedades adicionales
 - **Parámetros Específicos**: 
-  - `max_completion_tokens` para Chat Completions
+  - `max_completion_tokens` para Chat Completions (actualizado desde `max_tokens`)
   - `max_output_tokens` para Responses API
-- **Roles Correctos**: `developer` en lugar de `system` para Chat Completions
+- **Roles Correctos**: 
+  - `system` para Chat Completions API
+  - `developer` para Responses API
 
 ### Interfaz de Usuario Moderna
 - Diseño responsive con Tailwind CSS
@@ -86,27 +90,63 @@ npm run preview
 }
 ```
 
-**Salida (Chat Completions):**
+**Salida Chat Completions - JSON Mode:**
 ```json
 {
-  "type": "function",
-  "function": {
-    "name": "process_data",
-    "description": "Procesa los datos del usuario",
-    "parameters": {
-      "type": "object",
-      "properties": {
-        "name": {"type": "string"},
-        "age": {"type": "number"},
-        "skills": {
-          "type": "array",
-          "items": {"type": "string"}
-        }
-      },
-      "required": ["name", "age", "skills"],
-      "additionalProperties": false
+  "model": "gpt-4o-2024-08-06",
+  "messages": [
+    {
+      "role": "system",
+      "content": "TU PROMPT DEL DESARROLLADOR AQUÍ"
     },
-    "strict": true
+    {
+      "role": "user",
+      "content": "TU PROMPT DEL USUARIO AQUÍ"
+    }
+  ],
+  "temperature": 0.7,
+  "max_completion_tokens": 1000,
+  "response_format": {
+    "type": "json_object"
+  }
+}
+```
+
+**Salida Chat Completions - Structured Outputs:**
+```json
+{
+  "model": "gpt-4o-2024-08-06",
+  "messages": [
+    {
+      "role": "system",
+      "content": "TU PROMPT DEL DESARROLLADOR AQUÍ"
+    },
+    {
+      "role": "user",
+      "content": "TU PROMPT DEL USUARIO AQUÍ"
+    }
+  ],
+  "temperature": 0.7,
+  "max_completion_tokens": 1000,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "user_data",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "age": {"type": "number"},
+          "skills": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "required": ["name", "age", "skills"],
+        "additionalProperties": false
+      }
+    }
   }
 }
 ```
