@@ -31,8 +31,8 @@ export interface ChatCompletionsFormat {
     type: "json_schema" | "json_object";
     json_schema?: {
       name: string;
-      schema: OpenAIProperty;
       strict: boolean;
+      schema: OpenAIProperty;
     };
   };
 }

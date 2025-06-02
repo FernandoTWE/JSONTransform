@@ -288,7 +288,7 @@ export function useSchemaConverter() {
           model: "gpt-4o-2024-08-06",
           messages: [
             {
-              role: "developer",
+              role: "system",
               content: "TU PROMPT DEL DESARROLLADOR AQUÍ"
             },
             {
@@ -297,7 +297,7 @@ export function useSchemaConverter() {
             }
           ],
           temperature: 0.7,
-          max_completion_tokens: 1000,
+          max_tokens: 1000,
           response_format: {
             type: 'json_object'
           }
@@ -362,7 +362,7 @@ export function useSchemaConverter() {
           model: "gpt-4o-2024-08-06",
           messages: [
             {
-              role: "developer",
+              role: "system",
               content: "TU PROMPT DEL DESARROLLADOR AQUÍ"
             },
             {
@@ -371,7 +371,7 @@ export function useSchemaConverter() {
             }
           ],
           temperature: 0.7,
-          max_completion_tokens: 1000,
+          max_tokens: 1000,
           response_format: {
             type: 'json_schema',
             json_schema: jsonSchema

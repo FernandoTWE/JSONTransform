@@ -80,7 +80,9 @@ export function SchemaConverter() {
           ]
         }
       };
-      setInputJson(JSON.stringify(exampleData, null, 2));
+      const jsonString = JSON.stringify(exampleData, null, 2);
+      setInputJson(jsonString);
+      validateAndConvert(jsonString);
     } else {
       // Cargar ejemplo de JSON Schema
       const exampleSchema = {
@@ -130,7 +132,9 @@ export function SchemaConverter() {
         },
         "additionalProperties": false
       };
-      setInputJson(JSON.stringify(exampleSchema, null, 2));
+      const jsonString = JSON.stringify(exampleSchema, null, 2);
+      setInputJson(jsonString);
+      validateAndConvert(jsonString);
     }
   };
 
@@ -374,8 +378,8 @@ export function SchemaConverter() {
                     <strong>📋 Instrucciones de uso:</strong><br/>
                     1. Reemplaza los placeholders resaltados con tus prompts reales<br/>
                     2. Ajusta temperatura (0-2) y tokens máximos según tus necesidades<br/>
-                    3. <strong>Chat Completions:</strong> usa "developer" role y "max_completion_tokens"<br/>
-                    4. <strong>Responses API:</strong><br/>
+                    3. <strong>Chat Completions:</strong> usa "system" role y "max_tokens"<br/>
+                    4. <strong>Responses API:</strong> usa "developer" role y "max_output_tokens"<br/>
                     &nbsp;&nbsp;• <strong>Instructions:</strong> para peticiones simples de una vuelta<br/>
                     &nbsp;&nbsp;• <strong>Roles:</strong> para conversaciones multi-vuelta con control fino<br/>
                     5. Copia el payload y úsalo directamente en tu llamada a la API
