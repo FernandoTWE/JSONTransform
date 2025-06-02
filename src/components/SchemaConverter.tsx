@@ -375,14 +375,30 @@ export function SchemaConverter() {
                 
                 <Alert>
                   <AlertDescription>
-                    <strong>📋 Instrucciones de uso:</strong><br/>
-                    1. Reemplaza los placeholders resaltados con tus prompts reales<br/>
-                    2. Ajusta temperatura (0-2) y tokens máximos según tus necesidades<br/>
-                    3. <strong>Chat Completions:</strong> usa "system" role y "max_tokens"<br/>
-                    4. <strong>Responses API:</strong> usa "developer" role y "max_output_tokens"<br/>
-                    &nbsp;&nbsp;• <strong>Instructions:</strong> para peticiones simples de una vuelta<br/>
-                    &nbsp;&nbsp;• <strong>Roles:</strong> para conversaciones multi-vuelta con control fino<br/>
-                    5. Copia el payload y úsalo directamente en tu llamada a la API
+                    <div className="space-y-3">
+                      <div className="font-semibold text-sm flex items-center gap-2">
+                        📋 <span>Instrucciones de uso:</span>
+                      </div>
+                      
+                      <div className="space-y-2 text-sm">
+                        <div>1. Reemplaza los placeholders resaltados con tus prompts reales</div>
+                        <div>2. Ajusta temperatura (0-2) y tokens máximos según tus necesidades</div>
+                        
+                        <div className="space-y-1">
+                          <div>3. <strong>Chat Completions:</strong> usa <code className="bg-gray-100 px-1 rounded text-xs">"system"</code> role y <code className="bg-gray-100 px-1 rounded text-xs">"max_completion_tokens"</code></div>
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <div>4. <strong>Responses API:</strong> usa <code className="bg-gray-100 px-1 rounded text-xs">"developer"</code> role y <code className="bg-gray-100 px-1 rounded text-xs">"max_output_tokens"</code></div>
+                          <div className="ml-4 space-y-1 text-xs text-gray-600">
+                            <div>• <strong>Instructions:</strong> para peticiones simples de una vuelta</div>
+                            <div>• <strong>Roles:</strong> para conversaciones multi-vuelta con control fino</div>
+                          </div>
+                        </div>
+                        
+                        <div>5. Copia el payload y úsalo directamente en tu llamada a la API</div>
+                      </div>
+                    </div>
                   </AlertDescription>
                 </Alert>
 

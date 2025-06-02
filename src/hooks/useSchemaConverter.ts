@@ -292,12 +292,12 @@ export function useSchemaConverter() {
               content: "TU PROMPT DEL DESARROLLADOR AQUÍ"
             },
             {
-              role: "user", 
+              role: "user",
               content: "TU PROMPT DEL USUARIO AQUÍ"
             }
           ],
           temperature: 0.7,
-          max_tokens: 1000,
+          max_completion_tokens: 1000,
           response_format: {
             type: 'json_object'
           }
@@ -371,7 +371,7 @@ export function useSchemaConverter() {
             }
           ],
           temperature: 0.7,
-          max_tokens: 1000,
+          max_completion_tokens: 1000,
           response_format: {
             type: 'json_schema',
             json_schema: jsonSchema
