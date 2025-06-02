@@ -35,7 +35,7 @@ Una aplicación web moderna para convertir JSON a esquemas compatibles con las A
 
 - **Framework**: Astro 5.8+ con React
 - **Styling**: Tailwind CSS 4.1+
-- **UI Components**: Radix UI
+- **UI Components**: shadcn/ui + Radix UI
 - **TypeScript**: Tipado completo
 - **Deployment**: Cloudflare compatible
 
