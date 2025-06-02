@@ -1,6 +1,6 @@
-# JSON to OpenAI Schema Converter
+# Conversor JSON/Schema a Formato OpenAI
 
-Una aplicación web moderna para convertir JSON a esquemas compatibles con las APIs de OpenAI (Chat Completions y Responses API).
+Una aplicación web moderna que convierte JSON de datos o JSON Schema al formato oficial especificado en la documentación de OpenAI para Chat Completions y Responses API.
 
 ## 🔗 Enlaces
 

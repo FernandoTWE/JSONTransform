@@ -156,19 +156,14 @@ export function SchemaConverter() {
 
   return (
     <div className="container mx-auto p-6 max-w-7xl">
-      <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold mb-4">Conversor JSON/Schema a OpenAI</h1>
-        <p className="text-lg text-muted-foreground">
-          Detecta automáticamente si es JSON de datos o JSON Schema y lo convierte al formato OpenAI
-        </p>
-      </div>
+     
 
       {/* Panel de configuración */}
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>Configuración del Schema</CardTitle>
           <CardDescription>
-            Configura cómo se generará el schema OpenAI a partir de tus datos JSON
+            Configura el formato de salida según la documentación oficial de OpenAI para las APIs seleccionadas
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -373,6 +368,63 @@ export function SchemaConverter() {
                   </Badge>
                 </div>
                 
+                <Alert className="border-amber-200 bg-amber-50">
+                  <AlertDescription>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-amber-600 text-lg">⚠️</span>
+                        <div className="flex-1">
+                          <div className="font-semibold text-amber-800 mb-2">Compatibilidad con OpenAI</div>
+                          <div className="text-sm text-amber-700 space-y-2">
+                            <p>Las siguientes propiedades de JSON Schema se eliminan automáticamente para garantizar compatibilidad:</p>
+                            
+                            <div className="grid grid-cols-2 gap-2 text-xs">
+                              <div className="space-y-1">
+                                <div className="font-medium">Lógica Condicional:</div>
+                                <div className="space-x-1">
+                                  <code className="bg-amber-100 px-1 rounded">if/then/else</code>
+                                  <code className="bg-amber-100 px-1 rounded">not</code>
+                                </div>
+                              </div>
+                              
+                              <div className="space-y-1">
+                                <div className="font-medium">Combinadores:</div>
+                                <div className="space-x-1">
+                                  <code className="bg-amber-100 px-1 rounded">allOf</code>
+                                  <code className="bg-amber-100 px-1 rounded">oneOf</code>
+                                  <code className="bg-amber-100 px-1 rounded">anyOf</code>
+                                </div>
+                              </div>
+                              
+                              <div className="space-y-1">
+                                <div className="font-medium">Validaciones:</div>
+                                <div className="space-x-1">
+                                  <code className="bg-amber-100 px-1 rounded">const</code>
+                                  <code className="bg-amber-100 px-1 rounded">contains</code>
+                                </div>
+                              </div>
+                              
+                              <div className="space-y-1">
+                                <div className="font-medium">Referencias:</div>
+                                <div className="space-x-1">
+                                  <code className="bg-amber-100 px-1 rounded">$ref</code>
+                                  <code className="bg-amber-100 px-1 rounded">$defs</code>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="pt-2 border-t border-amber-200">
+                              <div className="text-xs text-amber-600">
+                                💡 <strong>Tip:</strong> OpenAI Structured Outputs soporta un subconjunto de JSON Schema optimizado para IA.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </AlertDescription>
+                </Alert>
+
                 <Alert>
                   <AlertDescription>
                     <div className="space-y-3">
@@ -399,14 +451,6 @@ export function SchemaConverter() {
                         <div>5. Copia el payload y úsalo directamente en tu llamada a la API</div>
                       </div>
                     </div>
-                  </AlertDescription>
-                </Alert>
-
-                <Alert className="border-amber-200 bg-amber-50">
-                  <AlertDescription className="text-amber-800">
-                    <strong>⚠️ Nota importante:</strong> Las propiedades no compatibles con OpenAI 
-                    (como <code>if/then/else</code>, <code>not</code>, <code>allOf/oneOf</code>, <code>const</code>, etc.) 
-                    se eliminan automáticamente del schema para garantizar compatibilidad.
                   </AlertDescription>
                 </Alert>
 
