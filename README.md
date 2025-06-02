@@ -9,7 +9,7 @@ Una aplicación web moderna para convertir JSON a esquemas compatibles con las A
 
 ## ⚡ Prueba Rápida
 
-¿Quieres probar la aplicación inmediatamente? Visita la **[demo en vivo](https://json-openai.nuvawe.com)** y convierte tu JSON en segundos.
+¿Quieres probar la aplicación inmediatamente? Visita la **[demo en vivo](https://json-openai.nuvaweb.com)** y convierte tu JSON en segundos.
 
 ## 🚀 Características
 
